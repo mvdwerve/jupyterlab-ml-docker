@@ -31,21 +31,24 @@ RUN chmod +x /usr/bin/tini
 # default packages
 RUN conda install --yes \
 	nodejs \
-        matplotlib \
-        opencv \
-        pandas \
-        scipy \
-        scikit-learn \
-        numpy \
-        jupyterlab \
-        ipywidgets \
-        tqdm 
+    matplotlib \
+    opencv \
+    pandas \
+    scipy \
+    scikit-learn \
+    numpy \
+    jupyterlab \
+    ipywidgets \
+    tqdm 
 
 # install torchvision and cuda for pytorch from the pytorch channel
 RUN conda install pytorch torchvision cuda91 -c pytorch
 
 # install the widget lab extension for tqdm
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
+
+# install the tensorboard extension
+RUN pip install git+https://github.com/lanpa/tensorboard-pytorch
 
 # jupyterlab port
 EXPOSE 8888

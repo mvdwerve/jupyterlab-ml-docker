@@ -21,6 +21,9 @@ RUN conda install pytorch-cpu torchvision-cpu -c pytorch
 # install the widget lab extension for tqdm
 RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
+# install the tensorboard extension
+RUN pip install git+https://github.com/lanpa/tensorboard-pytorch
+
 # jupyterlab point
 EXPOSE 8888
 
