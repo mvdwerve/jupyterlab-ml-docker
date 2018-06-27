@@ -37,15 +37,10 @@ RUN conda install --yes \
     scipy \
     scikit-learn \
     numpy \
-    jupyterlab \
-    ipywidgets \
-    tqdm 
+    jupyterlab 
 
 # install torchvision and cuda for pytorch from the pytorch channel
 RUN conda install pytorch torchvision cuda91 -c pytorch
-
-# install the widget lab extension for tqdm
-RUN jupyter labextension install @jupyter-widgets/jupyterlab-manager
 
 # install the tensorboard extension
 RUN pip install git+https://github.com/lanpa/tensorboard-pytorch
